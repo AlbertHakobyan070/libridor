@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libridor Privacy Policy</title>
+<style>
+/* Libridor's own palette, copied from :root in index.html. The design is Santa
+   Maria del Fiore's facade: flat marble panels cut to shape and set in a dark
+   stone joint. Gold is spent on emphasis only and never on a field. */
+:root{
+  --marble:#efe6d2;
+  --marble-dim:#e3d8c0;
+  --stone:#d8ccb2;
+  --joint:#0e0a08;
+  --verde:#3c6b56;
+  --rosa:#b5654f;
+  --gold:#d9a441;
+  --pietra:#6f6558;
+  --ink:#231d18;
+  --ink-soft:#6b6053;
+  --rule:rgba(14,10,8,.16);
+  --panel:#efe6d2;
+  --panel-alt:#e6dcc5;
+  --ground:#dccfb4;
+  --serif:"EB Garamond","Iowan Old Style",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#ebe2ce;
+    --ink-soft:#9d9182;
+    --pietra:#9c8f7e;
+    --joint:#000;
+    --rule:rgba(239,230,210,.14);
+    --panel:#191411;
+    --panel-alt:#1f1a15;
+    --ground:#100d0b;
+    --stone:#2a231d;
+    --verde:#7fb79a;
+    --rosa:#dd977f;
+    --gold:#e8bd6a;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#ebe2ce;
+  --ink-soft:#9d9182;
+  --pietra:#9c8f7e;
+  --joint:#000;
+  --rule:rgba(239,230,210,.14);
+  --panel:#191411;
+  --panel-alt:#1f1a15;
+  --ground:#100d0b;
+  --stone:#2a231d;
+  --verde:#7fb79a;
+  --rosa:#dd977f;
+  --gold:#e8bd6a;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:19px;
+  line-height:1.62;
+  margin:0;
+  padding:clamp(16px,4vw,52px) clamp(12px,4vw,32px) 72px;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:41rem;
+  margin:0 auto;
+  border:1px solid var(--joint);
+  background:var(--panel);
+}
+
+/* Panels, set in joints. Each section is a stone; the line between two stones
+   is the joint, so it is a border rather than a gap. */
+.panel{
+  padding:clamp(22px,5vw,38px) clamp(20px,5vw,44px);
+  border-bottom:1px solid var(--joint);
+}
+.panel:last-child{border-bottom:0}
+.panel.alt{background:var(--panel-alt)}
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--pietra);
+  margin:0 0 14px;
+}
+
+h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(38px,9vw,58px);
+  line-height:1.02;
+  letter-spacing:-.012em;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--verde)}
+h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(23px,4.4vw,28px);
+  line-height:1.2;
+  letter-spacing:-.005em;
+  margin:0 0 12px;
+  text-wrap:balance;
+}
+h3{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin:26px 0 8px;
+}
+p{margin:0 0 15px}
+p:last-child{margin-bottom:0}
+a{color:var(--verde);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+strong{font-weight:600}
+
+.lede{
+  font-size:clamp(21px,3.6vw,25px);
+  line-height:1.44;
+  color:var(--ink);
+  margin:0 0 4px;
+}
+.sub{
+  font-family:var(--sans);
+  font-size:13px;
+  line-height:1.6;
+  color:var(--pietra);
+  margin:0;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 26px;
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+}
+.meta div{font-family:var(--sans);font-size:12px;line-height:1.5}
+.meta dt{color:var(--pietra);letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;font-weight:600}
+.meta dd{margin:2px 0 0;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* The one gilt rule on the page, on the one panel that carries the claim
+   everything else rests on. */
+.gilt{
+  border-top:2px solid var(--gold);
+  background:var(--panel-alt);
+}
+
+.tablewrap{overflow-x:auto;margin:6px 0 0}
+table{
+  border-collapse:collapse;
+  width:100%;
+  font-family:var(--sans);
+  font-size:13.5px;
+  line-height:1.45;
+}
+th,td{
+  text-align:left;
+  padding:11px 14px 11px 0;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+th{
+  font-weight:600;
+  font-size:10.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--pietra);
+  padding-top:0;
+}
+td code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:12px;
+  word-break:break-word;
+}
+tr:last-child td{border-bottom:0}
+
+ul{margin:0;padding:0;list-style:none}
+.never li{
+  position:relative;
+  padding:11px 0 11px 30px;
+  border-bottom:1px solid var(--rule);
+}
+.never li:last-child{border-bottom:0}
+.never li::before{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:23px;
+  width:13px;
+  height:1.5px;
+  background:var(--verde);
+}
+.never b{font-weight:600}
+
+.plain li{
+  padding:9px 0 9px 30px;
+  position:relative;
+  border-bottom:1px solid var(--rule);
+}
+.plain li:last-child{border-bottom:0}
+.plain li::before{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:22px;
+  width:6px;height:6px;
+  background:var(--pietra);
+}
+
+.note{
+  font-family:var(--sans);
+  font-size:13px;
+  line-height:1.6;
+  color:var(--pietra);
+  border-left:2px solid var(--rosa);
+  padding:2px 0 2px 16px;
+  margin:20px 0 0;
+}
+.note b{color:var(--ink);font-weight:600}
+
+footer{
+  max-width:41rem;
+  margin:20px auto 0;
+  font-family:var(--sans);
+  font-size:12px;
+  line-height:1.6;
+  color:var(--pietra);
+}
+</style>
+
+<div class="sheet">
+
+  <section class="panel">
+    <p class="eyebrow">Libridor &middot; Privacy policy</p>
+    <h1>Nothing leaves <em>this device</em></h1>
+    <p class="lede">Libridor is a book reader that has no server, no accounts, and no permission to reach the network. It collects nothing about you, because there is nowhere for anything to go.</p>
+    <p class="sub">That is the whole policy. The rest of this page is the detail a store reviewer needs, and the evidence for the sentence above.</p>
+    <dl class="meta">
+      <div><dt>Effective</dt><dd>2 October 2026</dd></div>
+      <div><dt>Application</dt><dd>com.libridor.reader</dd></div>
+      <div><dt>Version</dt><dd>1.0</dd></div>
+      <div><dt>Platforms</dt><dd>Android</dd></div>
+    </dl>
+  </section>
+
+  <section class="panel gilt">
+    <p class="eyebrow">The evidence</p>
+    <h2>Every permission the app requests</h2>
+    <p>There is one, and the app did not ask for it. It is a signature-level permission the Android framework injects into every app that uses AndroidX, and it lets the app talk to itself.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Permission</th><th scope="col">Who asked for it</th><th scope="col">What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code></td>
+            <td>The Android framework</td>
+            <td>Guards the app's own internal broadcasts so other apps cannot send them. Never leaves the device.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>What is deliberately absent</h3>
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><td><code>INTERNET</code></td><td>Removed. Capacitor adds it by default; Libridor does not keep it. Without it the operating system will not open a socket for this app at all.</td></tr>
+          <tr><td><code>READ_EXTERNAL_STORAGE</code></td><td>Never declared. A book you hand Libridor arrives as a <code>content://</code> grant attached to the intent, which needs no permission.</td></tr>
+          <tr><td><code>MANAGE_EXTERNAL_STORAGE</code></td><td>Removed for the store build, along with the one feature that used it.</td></tr>
+          <tr><td>Location, camera, microphone, contacts, calendar</td><td>Never declared. Libridor has no use for any of them.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>One thing in the manifest that is not a permission</h3>
+    <p>If you read the app's manifest you will find a <code>&lt;queries&gt;</code> block naming <code>SENDTO</code> and <code>mailto:</code>. It is worth explaining rather than leaving you to wonder. Since Android 11 an app cannot see what else is installed on your phone unless it declares what it needs to look for, and Libridor needs to know whether you have <em>a mail app</em> — otherwise the "Report a problem" button would fail silently. The declaration is scoped to mail and grants nothing: Libridor can ask whether a mail app exists, and that is all. It reads no other app, and it does not learn which one you picked.</p>
+    <p class="note"><b>You can check this yourself</b> without taking our word for it. Android Settings &rarr; Apps &rarr; Libridor &rarr; Permissions shows the same list, and any APK analyser will read the manifest out of the downloaded file.</p>
+  </section>
+
+  <section class="panel">
+    <p class="eyebrow">Your library</p>
+    <h2>What is stored, and where it sits</h2>
+    <p>Libridor keeps a fair amount, and all of it is on your phone, in this app's own sandbox. No copy exists anywhere else.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th scope="col">What</th><th scope="col">Where it lives</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>The book files themselves</td><td>The app's private IndexedDB, under <code>app_webview/</code></td></tr>
+          <tr><td>Covers, and your place in each book</td><td>The same database</td></tr>
+          <tr><td>Highlights and notes you make</td><td>The same database, per book</td></tr>
+          <tr><td>Shelves and collections</td><td>The same database</td></tr>
+          <tr><td>Settings and saved presets</td><td>Local storage, in the same sandbox</td></tr>
+          <tr><td>Folders you have pointed Libridor at</td><td>A persistable grant held by Android, revocable by you</td></tr>
+        </tbody>
+      </table>
+      </div>
+    <h3>The two ways something can leave</h3>
+    <p>Libridor can hand a book to another app, and this is the first route out. Tap the arrow beside a book in the library and Android's own share sheet opens — mail, a messaging app, a cloud drive, whatever you have installed. The file is copied to a private staging folder, offered to the app you pick, and removed again.</p>
+    <p><strong>It only ever happens because you tapped it</strong>, it goes to the app you chose and nowhere else, and Libridor is not told what you picked or what happened next. Nothing is shared automatically, on a schedule, or in the background. If you never tap that arrow, no book ever leaves this phone.</p>
+    <p><strong>Back up and restore</strong> is the second. Under Import &amp; access, <em>Save a backup</em> writes one file and hands it to Android's own save dialog, so it goes where you put it. The file holds your settings and presets, your shelves, the phone's model, its Android version and Libridor's version, the folders Libridor may read, and for each book its title, author, where its file came from, your place, highlights, bookmarks and notes, and a small copy of its cover. The books themselves are not in it. The private shelf's part is encrypted with its PIN, and the rest of the file says only how many books are on it. A PIN is four digits, so this keeps the titles from someone who opens the file, not from someone set on breaking it. <em>Restore from a backup</em> reads the file back from wherever you choose in Android's file picker.</p>
+
+    <h3>Android's own backup is switched off on purpose</h3>
+    <p>Android's automatic backup would copy app data to your Google Drive. Libridor sets <code>allowBackup="false"</code>, so it never does. The reason is practical rather than principled: the quota is 25&nbsp;MB and a real library is far larger, so the backup would fail silently and promise you a safety net that was not there. Nothing about your library is uploaded anywhere by itself, including to your own cloud storage.</p>
+    <p class="note"><b>So keep your own copies of books that matter to you.</b> Uninstalling Libridor deletes its sandbox, and with it every book you imported. That is also the complete answer to &ldquo;how do I delete my data&rdquo; &mdash; there is no second copy anywhere to ask anyone about.</p>
+    <p>The honest consequence, stated plainly rather than buried: <strong>a new phone starts with an empty shelf.</strong> Nothing syncs, because there is no account to sync to. The backup above is how a library moves: a file you carry to the new phone, not a copy anyone else keeps. After a restore each book waits on its shelf, with its place and marks, until you add its file again.</p>
+  </section>
+
+  <section class="panel alt">
+    <p class="eyebrow">Commitments</p>
+    <h2>What Libridor never does</h2>
+    <ul class="never">
+      <li><b>Makes no network request of any kind.</b> There is no server to send a book to, and no permission to reach one.</li>
+      <li><b>Keeps no analytics.</b> No usage statistics, no crash reporting, no telemetry, no device fingerprint.</li>
+      <li><b>Contains no third-party SDK.</b> No advertising, no attribution, no A/B testing, no social login.</li>
+      <li><b>Shows no advertisements</b>, and so has nothing to target them with.</li>
+      <li><b>Sells and shares nothing</b>, because it holds nothing to sell or share.</li>
+      <li><b>Reads nothing you have not handed it.</b> Not your browsing history, not other apps' files, not folders you did not choose.</li>
+      <li><b>Asks for no account.</b> There is no sign-in, no profile, and no identifier tying this copy of Libridor to you.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <p class="eyebrow">The formalities</p>
+    <h2>The questions stores ask</h2>
+
+    <h3>Children</h3>
+    <p>Libridor collects no personal information from anyone, of any age. It is not directed at children specifically, and it holds nothing that could identify a child any more than it could identify an adult — which is to say, nothing at all.</p>
+
+    <h3>Your rights</h3>
+    <p>Rights of access, correction, portability, erasure and objection all exist to give you leverage over data somebody else is holding. Nobody is holding any of yours. There is no request to make and no one to make it to: your library is on your phone, you can remove any book from within the app, and uninstalling removes everything.</p>
+
+    <h3>Data we would have to disclose</h3>
+    <p>None. A subpoena served on the developer of Libridor would produce nothing, because no record of you exists to produce.</p>
+
+    <h3>Payments</h3>
+    <p>If Libridor ever charges for anything, the transaction goes through Google Play's own billing, and Google — not Libridor — handles the payment. Libridor would receive only whether this device is entitled to the paid features. Card numbers and billing addresses never touch this app.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>If Libridor ever gains a feature that touches the network, this page changes before that version ships, and the effective date at the top changes with it. A policy updated after the fact would be worth nothing.</p>
+
+    <h3>Contact</h3>
+    <p>Libridor is made by one person. Questions about this policy, or about anything the app does with your files, go to <a href="mailto:libridor@proton.me">libridor@proton.me</a>.</p>
+    <p>You can also reach the same address from inside the app — Settings, then Help, then <strong>Report a problem</strong> or <strong>Send a suggestion</strong>. That opens your own mail app with the message already written, including your Libridor version and Android version. You see every word before it sends, and you can delete any of it. Libridor cannot send anything on its own; it has no permission to.</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Libridor is an offline reader. It is built so that the claims on this page are structural rather than promised: with no network permission declared, the operating system itself refuses to open a connection for this app, whatever its code might ask for.</p>
+</footer>
