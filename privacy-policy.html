@@ -251,9 +251,9 @@ footer{
     <p class="lede">Libridor is a book reader that has no server, no accounts, and no permission to reach the network. It collects nothing about you, because there is nowhere for anything to go.</p>
     <p class="sub">That is the whole policy. The rest of this page is the detail a store reviewer needs, and the evidence for the sentence above.</p>
     <dl class="meta">
-      <div><dt>Effective</dt><dd>2 October 2026</dd></div>
+      <div><dt>Effective</dt><dd>30 October 2026</dd></div>
       <div><dt>Application</dt><dd>com.libridor.reader</dd></div>
-      <div><dt>Version</dt><dd>1.0</dd></div>
+      <div><dt>Version</dt><dd>1.0.6</dd></div>
       <div><dt>Platforms</dt><dd>Android</dd></div>
     </dl>
   </section>
@@ -261,7 +261,7 @@ footer{
   <section class="panel gilt">
     <p class="eyebrow">The evidence</p>
     <h2>Every permission the app requests</h2>
-    <p>There is one, and the app did not ask for it. It is a signature-level permission the Android framework injects into every app that uses AndroidX, and it lets the app talk to itself.</p>
+    <p>There are two. The first the app did not ask for: it is a signature-level permission the Android framework injects into every app that uses AndroidX, and it lets the app talk to itself. The second comes with Google Play's billing library, for the one-time unlock.</p>
     <div class="tablewrap">
       <table>
         <thead>
@@ -273,6 +273,11 @@ footer{
             <td>The Android framework</td>
             <td>Guards the app's own internal broadcasts so other apps cannot send them. Never leaves the device.</td>
           </tr>
+          <tr>
+            <td><code>com.android.vending.BILLING</code></td>
+            <td>Google Play's billing library</td>
+            <td>Lets Libridor ask the Play Store app on this phone to sell the one-time unlock and to say whether this device has it. A normal permission: no prompt, no network access of its own. The payment is made in the Play Store app and handled by Google; Libridor never sees it.</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -280,7 +285,7 @@ footer{
     <div class="tablewrap">
       <table>
         <tbody>
-          <tr><td><code>INTERNET</code></td><td>Removed. Capacitor adds it by default; Libridor does not keep it. Without it the operating system will not open a socket for this app at all.</td></tr>
+          <tr><td><code>INTERNET</code></td><td>Removed. Capacitor adds it by default, and Google Play's billing library asks for it too; Libridor removes it again in the manifest, and the purchase is made by the Play Store app. Without it the operating system will not open a socket for this app at all.</td></tr>
           <tr><td><code>READ_EXTERNAL_STORAGE</code></td><td>Never declared. A book you hand Libridor arrives as a <code>content://</code> grant attached to the intent, which needs no permission.</td></tr>
           <tr><td><code>MANAGE_EXTERNAL_STORAGE</code></td><td>Removed for the store build, along with the one feature that used it.</td></tr>
           <tr><td>Location, camera, microphone, contacts, calendar</td><td>Never declared. Libridor has no use for any of them.</td></tr>
@@ -308,6 +313,8 @@ footer{
           <tr><td>Shelves and collections</td><td>The same database</td></tr>
           <tr><td>Settings and saved presets</td><td>Local storage, in the same sandbox</td></tr>
           <tr><td>Folders you have pointed Libridor at</td><td>A persistable grant held by Android, revocable by you</td></tr>
+          <tr><td>Whether this phone has the full library, and whether Libridor was installed here before it was sold</td><td>Two yes-or-no values in the app's private Android preferences</td></tr>
+          <tr><td>When the seven-day trial of the full library ends, and which of its two notices you have seen</td><td>A date and a word in the app's own storage on this phone</td></tr>
         </tbody>
       </table>
       </div>
@@ -328,7 +335,7 @@ footer{
     <ul class="never">
       <li><b>Makes no network request of any kind.</b> There is no server to send a book to, and no permission to reach one.</li>
       <li><b>Keeps no analytics.</b> No usage statistics, no crash reporting, no telemetry, no device fingerprint.</li>
-      <li><b>Contains no third-party SDK.</b> No advertising, no attribution, no A/B testing, no social login.</li>
+      <li><b>Contains one third-party library, Google Play's billing library,</b> which talks to the Play Store app on this phone. Google ships it with two of its own components: a logging service that would send diagnostics to Google, and the Google Play services location client. Neither can do anything here. With no network permission the operating system refuses the logging service any connection, and with no location permission the location client cannot read where you are. Both refusals are made by Android itself, and the permission list above is the evidence. No advertising, no attribution, no A/B testing in the app, no social login.</li>
       <li><b>Shows no advertisements</b>, and so has nothing to target them with.</li>
       <li><b>Sells and shares nothing</b>, because it holds nothing to sell or share.</li>
       <li><b>Reads nothing you have not handed it.</b> Not your browsing history, not other apps' files, not folders you did not choose.</li>
@@ -346,11 +353,7 @@ footer{
     <h3>Your rights</h3>
     <p>Rights of access, correction, portability, erasure and objection all exist to give you leverage over data somebody else is holding. Nobody is holding any of yours. There is no request to make and no one to make it to: your library is on your phone, you can remove any book from within the app, and uninstalling removes everything.</p>
 
-    <h3>Data we would have to disclose</h3>
-    <p>None. A subpoena served on the developer of Libridor would produce nothing, because no record of you exists to produce.</p>
-
-    <h3>Payments</h3>
-    <p>If Libridor ever charges for anything, the transaction goes through Google Play's own billing, and Google — not Libridor — handles the payment. Libridor would receive only whether this device is entitled to the paid features. Card numbers and billing addresses never touch this app.</p>
+    <p>Libridor sells one thing: a one-time unlock, the full library. The purchase is made in the Play Store app, and Google, not Libridor, handles the payment. Libridor asks the Play Store app on this phone only whether your Google account owns the unlock, and keeps that answer on the phone as a yes or a no. Card numbers and billing addresses never touch this app. Google keeps its own record of the purchase, under Google's privacy policy, as it does for any Play purchase.</p>
 
     <h3>Changes to this policy</h3>
     <p>If Libridor ever gains a feature that touches the network, this page changes before that version ships, and the effective date at the top changes with it. A policy updated after the fact would be worth nothing.</p>
